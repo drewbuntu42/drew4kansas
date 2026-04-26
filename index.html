@@ -37,7 +37,6 @@
     overflow-x: hidden;
   }
 
-  /* ── NOISE TEXTURE OVERLAY ── */
   body::before {
     content: '';
     position: fixed;
@@ -49,334 +48,230 @@
     background-size: 256px;
   }
 
-  /* ── UTILITY ── */
   .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
   .gold { color: var(--gold); }
-  .italic { font-style: italic; }
-  .mono { font-family: 'DM Mono', monospace; font-size: 0.72em; letter-spacing: 0.08em; text-transform: uppercase; }
 
   /* ── NAV ── */
   nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    position: sticky; top: 0; z-index: 100;
     background: rgba(10,10,10,0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     padding: 0.85rem 0;
   }
   .nav-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    max-width: 900px; margin: 0 auto; padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
   }
   .nav-name {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.25rem;
-    letter-spacing: 0.12em;
-    color: var(--gold);
+    font-size: 1.25rem; letter-spacing: 0.12em; color: var(--gold);
   }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links { display: flex; gap: 1.75rem; list-style: none; align-items: center; }
   .nav-links a {
     font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.2s;
+    font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-secondary); text-decoration: none; transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--gold); }
+  .nav-join {
+    display: inline-block; padding: 0.42rem 1.1rem;
+    background: var(--gold); color: var(--black) !important;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem !important; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none; font-weight: 500; transition: background 0.2s;
+  }
+  .nav-join:hover { background: var(--gold-light) !important; }
 
   /* ── HERO ── */
   .hero {
-    min-height: 92vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    padding: 6rem 0 5rem;
+    min-height: 92vh; display: flex; align-items: center;
+    position: relative; overflow: hidden; padding: 6rem 0 5rem;
   }
-
-  .hero-bg-lines {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
+  .hero-bg-lines { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
   .hero-bg-lines::before {
-    content: '';
-    position: absolute;
-    left: -10%;
-    top: -20%;
-    width: 55%;
-    height: 140%;
-    border-right: 1px solid rgba(201,168,76,0.07);
-    transform: rotate(-8deg);
+    content: ''; position: absolute; left: -10%; top: -20%; width: 55%; height: 140%;
+    border-right: 1px solid rgba(201,168,76,0.07); transform: rotate(-8deg);
   }
   .hero-bg-lines::after {
-    content: '';
-    position: absolute;
-    right: 5%;
-    top: -10%;
-    width: 1px;
-    height: 120%;
+    content: ''; position: absolute; right: 5%; top: -10%; width: 1px; height: 120%;
     background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.12) 30%, rgba(201,168,76,0.12) 70%, transparent);
   }
-
   .hero-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem;
+    display: flex; align-items: center; gap: 0.75rem;
   }
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 2rem;
-    height: 1px;
-    background: var(--gold);
-  }
-
+  .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--gold); }
   .hero-name {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(4.5rem, 12vw, 9rem);
-    line-height: 0.88;
-    letter-spacing: 0.03em;
-    color: var(--off-white);
-    margin-bottom: 1rem;
+    font-size: clamp(4.5rem, 12vw, 9rem); line-height: 0.88;
+    letter-spacing: 0.03em; color: var(--off-white); margin-bottom: 1rem;
   }
   .hero-name .first { display: block; }
-  .hero-name .last {
-    display: block;
-    color: var(--gold);
-    -webkit-text-stroke: 0;
-  }
-
+  .hero-name .last { display: block; color: var(--gold); }
   .hero-title-line {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 2.5rem;
-    padding-top: 0.5rem;
-    border-top: 1px solid var(--border);
-    display: inline-block;
+    font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--text-muted); margin-bottom: 2.5rem;
+    padding-top: 0.5rem; border-top: 1px solid var(--border); display: inline-block;
   }
-
   .hero-lead {
-    font-size: 1.3rem;
-    line-height: 1.65;
-    color: var(--text-secondary);
-    max-width: 560px;
-    margin-bottom: 3rem;
-    font-weight: 300;
+    font-size: 1.3rem; line-height: 1.65; color: var(--text-secondary);
+    max-width: 560px; margin-bottom: 3rem; font-weight: 300;
   }
-
-  .hero-tagline {
-    font-size: 1.1rem;
-    font-style: italic;
-    color: var(--gold);
-    font-weight: 300;
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 3rem;
-  }
+  .hero-tagline { font-size: 1.1rem; font-style: italic; color: var(--gold); font-weight: 300; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
 
   .btn-primary {
-    display: inline-block;
-    padding: 0.85rem 2rem;
-    background: var(--gold);
-    color: var(--black);
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: 500;
+    display: inline-block; padding: 0.85rem 2rem;
+    background: var(--gold); color: var(--black);
+    font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.14em;
+    text-transform: uppercase; text-decoration: none; font-weight: 500;
     transition: background 0.2s, transform 0.15s;
   }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
 
   .btn-secondary {
-    display: inline-block;
-    padding: 0.85rem 2rem;
-    background: transparent;
-    color: var(--gold);
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    text-decoration: none;
+    display: inline-block; padding: 0.85rem 2rem;
+    background: transparent; color: var(--gold);
+    font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.14em;
+    text-transform: uppercase; text-decoration: none;
     border: 1px solid var(--border-strong);
     transition: border-color 0.2s, color 0.2s, transform 0.15s;
   }
   .btn-secondary:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-1px); }
 
-  /* ── DIVIDER ── */
   .section-divider {
     height: 1px;
     background: linear-gradient(to right, transparent, var(--border-strong) 30%, var(--border-strong) 70%, transparent);
-    margin: 0;
   }
 
-  /* ── SECTIONS ── */
   section { padding: 5rem 0; }
 
   .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 3rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 3rem;
+    display: flex; align-items: center; gap: 1rem;
   }
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* ── MAILING LIST BANNER ── */
+  .join-banner {
+    background: var(--black-mid); padding: 4.5rem 0;
+    position: relative; overflow: hidden;
+  }
+  .join-banner::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .join-banner::after {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: linear-gradient(to bottom, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+  }
+  .join-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap; }
+  .join-copy { flex: 1; min-width: 260px; }
+  .join-eyebrow {
+    font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .join-eyebrow::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
+  .join-copy h2 {
+    font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 2.8rem);
+    letter-spacing: 0.05em; color: var(--off-white); line-height: 1.0; margin-bottom: 0.75rem;
+  }
+  .join-copy h2 span { color: var(--gold); }
+  .join-copy p { font-size: 1.05rem; font-weight: 300; color: var(--text-muted); line-height: 1.65; max-width: 420px; }
+  .join-action { display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; flex-shrink: 0; }
+  .join-action .btn-primary { font-size: 0.72rem; padding: 1.05rem 2.5rem; white-space: nowrap; letter-spacing: 0.16em; }
+  .join-note {
+    font-family: 'DM Mono', monospace; font-size: 0.57rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-muted);
   }
 
-  /* ── WHY I'M RUNNING ── */
+  /* ── WHY ── */
   .why-section { background: var(--black-soft); }
   .why-body { max-width: 680px; }
-  .why-body p {
-    font-size: 1.2rem;
-    font-weight: 300;
-    color: var(--text-secondary);
-    margin-bottom: 1.4rem;
-    line-height: 1.75;
-  }
-  .why-body p:first-child {
-    font-size: 1.4rem;
-    color: var(--off-white);
-    font-weight: 400;
-  }
-
-  .principle-banner {
-    margin-top: 2.5rem;
-    padding: 1.5rem 2rem;
-    border-left: 3px solid var(--gold);
-    background: rgba(201,168,76,0.05);
-  }
+  .why-body p { font-size: 1.2rem; font-weight: 300; color: var(--text-secondary); margin-bottom: 1.4rem; line-height: 1.75; }
+  .why-body p:first-child { font-size: 1.4rem; color: var(--off-white); font-weight: 400; }
+  .principle-banner { margin-top: 2.5rem; padding: 1.5rem 2rem; border-left: 3px solid var(--gold); background: rgba(201,168,76,0.05); }
   .principle-banner p {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2rem;
-    letter-spacing: 0.08em;
-    color: var(--gold) !important;
-    font-style: normal !important;
-    font-weight: 400 !important;
-    line-height: 1 !important;
-    margin-bottom: 0 !important;
+    font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em;
+    color: var(--gold) !important; font-style: normal !important; font-weight: 400 !important;
+    line-height: 1 !important; margin-bottom: 0 !important;
   }
 
   /* ── ISSUES ── */
   .issues-section { background: var(--black); }
-
-  .issue-block {
-    margin-bottom: 4rem;
-    padding-bottom: 4rem;
-    border-bottom: 1px solid var(--border);
-  }
+  .issue-block { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
   .issue-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-
   .issue-number {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 5rem;
-    line-height: 1;
-    color: rgba(201,168,76,0.1);
-    margin-bottom: -1.5rem;
-    letter-spacing: 0.04em;
+    font-family: 'Bebas Neue', sans-serif; font-size: 5rem; line-height: 1;
+    color: rgba(201,168,76,0.1); margin-bottom: -1.5rem; letter-spacing: 0.04em;
   }
-
-  .issue-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
+  .issue-header { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.5rem; }
   .issue-icon {
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--border-strong);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 0.25rem;
+    width: 40px; height: 40px; border: 1px solid var(--border-strong);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.25rem;
   }
   .issue-icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
-
-  .issue-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.2rem;
-    letter-spacing: 0.06em;
-    color: var(--off-white);
-    line-height: 1.1;
-  }
-
-  .issue-body {
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: var(--text-secondary);
-    line-height: 1.8;
-    max-width: 660px;
-  }
+  .issue-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 0.06em; color: var(--off-white); line-height: 1.1; }
+  .issue-body { font-size: 1.1rem; font-weight: 300; color: var(--text-secondary); line-height: 1.8; max-width: 660px; }
   .issue-body p { margin-bottom: 1.1rem; }
   .issue-body p:last-child { margin-bottom: 0; }
 
+  /* ── CONTACT ── */
+  .contact-section { background: var(--black-soft); }
+  .contact-heading {
+    font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; letter-spacing: 0.05em;
+    color: var(--off-white); line-height: 1.1; margin-bottom: 1.25rem;
+  }
+  .contact-lead {
+    font-size: 1.15rem; font-weight: 300; color: var(--text-secondary);
+    margin-bottom: 2rem; line-height: 1.75; max-width: 520px;
+  }
+  .contact-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+
+  /* ── SOCIAL LINKS ── */
+  .social-section-label {
+    font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem;
+  }
+  .social-row { display: flex; gap: 0.65rem; flex-wrap: wrap; }
+  .social-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.5rem 0.9rem; border: 1px solid var(--border);
+    background: transparent; color: var(--text-secondary);
+    font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .social-link svg { width: 13px; height: 13px; flex-shrink: 0; }
+  .social-link:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.05); }
+
   /* ── FOOTER ── */
-  footer {
-    background: var(--black-soft);
-    border-top: 1px solid var(--border);
-    padding: 3rem 0;
-    text-align: center;
+  footer { background: var(--black); border-top: 1px solid var(--border); padding: 3rem 0; }
+  .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.12em; color: var(--gold); margin-bottom: 0.3rem; }
+  .footer-meta { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); line-height: 1.9; }
+  .footer-socials { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; }
+  .footer-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border: 1px solid var(--border);
+    color: var(--text-muted); text-decoration: none; transition: border-color 0.2s, color 0.2s;
   }
-  .footer-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 0.12em;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-  }
-  .footer-meta {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
+  .footer-icon:hover { border-color: var(--gold); color: var(--gold); }
+  .footer-icon svg { width: 14px; height: 14px; }
 
   /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-eyebrow { animation: fadeUp 0.6s ease both; animation-delay: 0.1s; }
-  .hero-name { animation: fadeUp 0.7s ease both; animation-delay: 0.2s; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-eyebrow  { animation: fadeUp 0.6s ease both; animation-delay: 0.10s; }
+  .hero-name     { animation: fadeUp 0.7s ease both; animation-delay: 0.20s; }
   .hero-title-line { animation: fadeUp 0.6s ease both; animation-delay: 0.35s; }
-  .hero-lead { animation: fadeUp 0.6s ease both; animation-delay: 0.45s; }
-  .hero-cta { animation: fadeUp 0.6s ease both; animation-delay: 0.55s; }
-  .hero-tagline { animation: fadeUp 0.6s ease both; animation-delay: 0.65s; }
+  .hero-lead     { animation: fadeUp 0.6s ease both; animation-delay: 0.45s; }
+  .hero-cta      { animation: fadeUp 0.6s ease both; animation-delay: 0.55s; }
+  .hero-tagline  { animation: fadeUp 0.6s ease both; animation-delay: 0.65s; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
@@ -386,6 +281,11 @@
     .btn-primary, .btn-secondary { width: 100%; text-align: center; }
     .issue-number { font-size: 3.5rem; }
     .issue-title { font-size: 1.7rem; }
+    .join-inner { flex-direction: column; }
+    .join-action { width: 100%; }
+    .join-action .btn-primary { width: 100%; text-align: center; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+    .footer-socials { justify-content: flex-start; }
   }
 </style>
 </head>
@@ -398,6 +298,7 @@
       <li><a href="#why">Why I'm Running</a></li>
       <li><a href="#issues">Issues</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="https://join.drew4kansas.com" class="nav-join">Join the Fight</a></li>
     </ul>
   </div>
 </nav>
@@ -416,12 +317,31 @@
       A data engineer, small business founder, husband, and father — running because the people of Kansas's 4th District deserve a representative who will actually say no.
     </p>
     <div class="hero-cta">
-      <a href="#why" class="btn-primary">Learn More</a>
-      <a href="#contact" class="btn-secondary">Get Involved</a>
+      <a href="https://join.drew4kansas.com" class="btn-primary">Join the Fight</a>
+      <a href="#why" class="btn-secondary">Learn More</a>
     </div>
     <p class="hero-tagline">Principle Over Party. Always.</p>
   </div>
 </section>
+
+<div class="section-divider"></div>
+
+<!-- MAILING LIST BANNER -->
+<div class="join-banner">
+  <div class="container">
+    <div class="join-inner">
+      <div class="join-copy">
+        <p class="join-eyebrow">Stay Informed</p>
+        <h2>Get updates from the <span>campaign.</span></h2>
+        <p>No party machines. No spin. Real updates from a real Kansan — on the issues Washington doesn't want to talk about.</p>
+      </div>
+      <div class="join-action">
+        <a href="https://join.drew4kansas.com" class="btn-primary">Join the Mailing List</a>
+        <span class="join-note">join.drew4kansas.com &nbsp;&mdash;&nbsp; no spam, ever</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="section-divider"></div>
 
@@ -448,15 +368,11 @@
   <div class="container">
     <p class="section-label">The Issues</p>
 
-    <!-- Issue 1 -->
     <div class="issue-block">
       <div class="issue-number">01</div>
       <div class="issue-header">
         <div class="issue-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/>
-            <path d="M12 22V12M2 7l10 5 10-5"/>
-          </svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M12 22V12M2 7l10 5 10-5"/></svg>
         </div>
         <h2 class="issue-title">Foreign Policy<br>&amp; War Powers</h2>
       </div>
@@ -466,16 +382,11 @@
       </div>
     </div>
 
-    <!-- Issue 2 -->
     <div class="issue-block">
       <div class="issue-number">02</div>
       <div class="issue-header">
         <div class="issue-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="3"/>
-            <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/>
-            <line x1="2" y1="2" x2="22" y2="22"/>
-          </svg>
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
         </div>
         <h2 class="issue-title">Privacy<br>&amp; Surveillance</h2>
       </div>
@@ -485,18 +396,11 @@
       </div>
     </div>
 
-    <!-- Issue 3 -->
     <div class="issue-block">
       <div class="issue-number">03</div>
       <div class="issue-header">
         <div class="issue-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M12 6v6l4 2"/>
-            <line x1="12" y1="2" x2="12" y2="4"/>
-            <line x1="12" y1="20" x2="12" y2="22"/>
-            <path d="M8 3.5l1 1.7M15 18.8l1 1.7M3.5 8l1.7 1M18.8 15l1.7 1M2 12h2M20 12h2M3.5 16l1.7-1M18.8 9l1.7-1M8 20.5l1-1.7M15 5.2l1-1.7"/>
-          </svg>
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         </div>
         <h2 class="issue-title">Sound Money<br>&amp; Fiscal Accountability</h2>
       </div>
@@ -506,17 +410,11 @@
       </div>
     </div>
 
-    <!-- Issue 4 -->
     <div class="issue-block">
       <div class="issue-number">04</div>
       <div class="issue-header">
         <div class="issue-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="3" width="8" height="8" rx="1"/>
-            <rect x="14" y="3" width="8" height="8" rx="1"/>
-            <rect x="2" y="13" width="8" height="8" rx="1"/>
-            <rect x="14" y="13" width="8" height="8" rx="1"/>
-          </svg>
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="8" height="8" rx="1"/><rect x="14" y="3" width="8" height="8" rx="1"/><rect x="2" y="13" width="8" height="8" rx="1"/><rect x="14" y="13" width="8" height="8" rx="1"/></svg>
         </div>
         <h2 class="issue-title">Decentralization<br>&amp; Returning Power Where It Belongs</h2>
       </div>
@@ -527,14 +425,11 @@
       </div>
     </div>
 
-    <!-- Issue 5 -->
     <div class="issue-block">
       <div class="issue-number">05</div>
       <div class="issue-header">
         <div class="issue-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <h2 class="issue-title">Judicial Reform<br>&amp; The Sanctity of Human Life</h2>
       </div>
@@ -553,26 +448,85 @@
 <div class="section-divider"></div>
 
 <!-- CONTACT -->
-<section id="contact" style="background: var(--black-soft); padding: 5rem 0;">
+<section class="contact-section" id="contact">
   <div class="container">
     <p class="section-label">Get Involved</p>
-    <div style="max-width: 560px;">
-      <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; letter-spacing: 0.05em; color: var(--off-white); line-height: 1.1; margin-bottom: 1.25rem;">
-        Ready to stand on <span class="gold">principle?</span>
-      </h2>
-      <p style="font-size: 1.15rem; font-weight: 300; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.75;">
-        Whether you want to volunteer, ask a question, or just learn more about the campaign — reach out. This race is built on real Kansans showing up, not party machines.
-      </p>
-      <a href="mailto:info@drew4kansas.com" class="btn-primary">Contact the Campaign</a>
+    <div style="max-width: 580px;">
+      <h2 class="contact-heading">Ready to stand on <span class="gold">principle?</span></h2>
+      <p class="contact-lead">Whether you want to volunteer, ask a question, or just stay informed — reach out or follow along. This race is built on real Kansans showing up, not party machines.</p>
+      <div class="contact-actions">
+        <a href="https://join.drew4kansas.com" class="btn-primary">Join the Mailing List</a>
+        <a href="mailto:info@drew4kansas.com" class="btn-secondary">Contact the Campaign</a>
+      </div>
+
+      <p class="social-section-label">Follow the Campaign</p>
+      <div class="social-row">
+        <a href="https://www.facebook.com/drew4kansas" class="social-link" target="_blank" rel="noopener">
+          <!-- Facebook -->
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Facebook
+        </a>
+        <a href="https://www.instagram.com/drew4kansas" class="social-link" target="_blank" rel="noopener">
+          <!-- Instagram -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          Instagram
+        </a>
+        <a href="https://x.com/drew4kansas" class="social-link" target="_blank" rel="noopener">
+          <!-- X -->
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          X / Twitter
+        </a>
+        <a href="https://www.tiktok.com/@drew4kansas" class="social-link" target="_blank" rel="noopener">
+          <!-- TikTok -->
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+          TikTok
+        </a>
+        <a href="https://www.linkedin.com/company/drew4kansas" class="social-link" target="_blank" rel="noopener">
+          <!-- LinkedIn -->
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://www.youtube.com/@Drew4Kansas" class="social-link" target="_blank" rel="noopener">
+          <!-- YouTube -->
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.8 8.001a2.748 2.748 0 0 0-1.935-1.949C18.196 5.6 12 5.6 12 5.6s-6.196 0-7.865.452A2.748 2.748 0 0 0 2.2 8.001 28.8 28.8 0 0 0 1.75 12a28.8 28.8 0 0 0 .45 3.999 2.748 2.748 0 0 0 1.935 1.949C5.804 18.4 12 18.4 12 18.4s6.196 0 7.865-.452a2.748 2.748 0 0 0 1.935-1.949A28.8 28.8 0 0 0 22.25 12a28.8 28.8 0 0 0-.45-3.999zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          YouTube
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p class="footer-name">Drew Cranmer for Congress</p>
-  <p class="footer-meta" style="margin-bottom: 0.5rem;">Libertarian Party &bull; Kansas 4th Congressional District</p>
-  <p class="footer-meta">Paid for by Drew Cranmer for Congress</p>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-name">Drew Cranmer for Congress</p>
+        <p class="footer-meta">Libertarian Party &bull; Kansas 4th Congressional District</p>
+        <p class="footer-meta">Paid for by Drew Cranmer for Congress</p>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/drew4kansas" class="footer-icon" target="_blank" rel="noopener" title="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/drew4kansas" class="footer-icon" target="_blank" rel="noopener" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://x.com/drew4kansas" class="footer-icon" target="_blank" rel="noopener" title="X / Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@drew4kansas" class="footer-icon" target="_blank" rel="noopener" title="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/drew4kansas" class="footer-icon" target="_blank" rel="noopener" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@Drew4Kansas" class="footer-icon" target="_blank" rel="noopener" title="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.8 8.001a2.748 2.748 0 0 0-1.935-1.949C18.196 5.6 12 5.6 12 5.6s-6.196 0-7.865.452A2.748 2.748 0 0 0 2.2 8.001 28.8 28.8 0 0 0 1.75 12a28.8 28.8 0 0 0 .45 3.999 2.748 2.748 0 0 0 1.935 1.949C5.804 18.4 12 18.4 12 18.4s6.196 0 7.865-.452a2.748 2.748 0 0 0 1.935-1.949A28.8 28.8 0 0 0 22.25 12a28.8 28.8 0 0 0-.45-3.999zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
 </footer>
 
 </body>
