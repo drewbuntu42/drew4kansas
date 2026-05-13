@@ -74,6 +74,16 @@
     color: var(--text-secondary); text-decoration: none; transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--gold); }
+  .nav-donate {
+    display: inline-block; padding: 0.42rem 1.1rem;
+    background: transparent; color: var(--gold) !important;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem !important; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none; font-weight: 500;
+    border: 1px solid var(--border-strong);
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+  }
+  .nav-donate:hover { border-color: var(--gold); background: rgba(201,168,76,0.08) !important; color: var(--gold-light) !important; }
   .nav-join {
     display: inline-block; padding: 0.42rem 1.1rem;
     background: var(--gold); color: var(--black) !important;
@@ -221,6 +231,31 @@
   .issue-body p { margin-bottom: 1.1rem; }
   .issue-body p:last-child { margin-bottom: 0; }
 
+  /* ── DONATE BANNER ── */
+  .donate-banner {
+    background: var(--black-soft); padding: 5rem 0;
+    position: relative; overflow: hidden;
+  }
+  .donate-banner::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(201,168,76,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .donate-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap; }
+  .donate-copy { flex: 1; min-width: 260px; }
+  .donate-copy h2 {
+    font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: 0.05em; color: var(--off-white); line-height: 1.0; margin-bottom: 0.75rem;
+  }
+  .donate-copy h2 span { color: var(--gold); }
+  .donate-copy p { font-size: 1.05rem; font-weight: 300; color: var(--text-muted); line-height: 1.65; max-width: 460px; }
+  .donate-action { display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; flex-shrink: 0; }
+  .donate-action .btn-primary { font-size: 0.72rem; padding: 1.05rem 2.5rem; white-space: nowrap; letter-spacing: 0.16em; }
+  .donate-note {
+    font-family: 'DM Mono', monospace; font-size: 0.57rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-muted);
+  }
+
   /* ── CONTACT ── */
   .contact-section { background: var(--black-soft); }
   .contact-heading {
@@ -284,6 +319,9 @@
     .join-inner { flex-direction: column; }
     .join-action { width: 100%; }
     .join-action .btn-primary { width: 100%; text-align: center; }
+    .donate-inner { flex-direction: column; }
+    .donate-action { width: 100%; }
+    .donate-action .btn-primary { width: 100%; text-align: center; }
     .footer-inner { flex-direction: column; align-items: flex-start; }
     .footer-socials { justify-content: flex-start; }
   }
@@ -299,6 +337,7 @@
       <li><a href="#issues">Issues</a></li>
       <li><a href="https://blog.drew4kansas.com" target="_blank" rel="noopener">Blog</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="https://donate.drew4kansas.com" class="nav-donate" target="_blank" rel="noopener">Donate</a></li>
       <li><a href="https://join.drew4kansas.com" class="nav-join">Join the Fight</a></li>
     </ul>
   </div>
@@ -319,7 +358,7 @@
     </p>
     <div class="hero-cta">
       <a href="https://join.drew4kansas.com" class="btn-primary">Join the Fight</a>
-      <a href="#why" class="btn-secondary">Learn More</a>
+      <a href="https://donate.drew4kansas.com" class="btn-secondary" target="_blank" rel="noopener">Donate</a>
     </div>
     <p class="hero-tagline">Principle Over Party. Always.</p>
   </div>
@@ -449,6 +488,25 @@
 
   </div>
 </section>
+
+<div class="section-divider"></div>
+
+<!-- DONATE BANNER -->
+<div class="donate-banner">
+  <div class="container">
+    <div class="donate-inner">
+      <div class="donate-copy">
+        <p class="section-label" style="margin-bottom: 1rem;">Support the Campaign</p>
+        <h2>Put your money where <span>principle</span> is.</h2>
+        <p>This campaign runs on small-dollar donations from real Kansans — not party money, not PAC money. Every dollar goes directly toward building a race that can't be bought.</p>
+      </div>
+      <div class="donate-action">
+        <a href="https://donate.drew4kansas.com" class="btn-primary" target="_blank" rel="noopener">Donate Now</a>
+        <span class="donate-note">donate.drew4kansas.com &nbsp;&mdash;&nbsp; secure &amp; FEC-compliant</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="section-divider"></div>
 
